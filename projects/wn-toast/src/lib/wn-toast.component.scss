@@ -1,0 +1,102 @@
+.toaster-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  .toaster {
+    display: block;
+    background: rgba(49, 49, 49, 0.75);
+    padding: 15px 20px;
+    border-radius: 5px;
+    width: 300px;
+    overflow: hidden;
+    margin: 25px;
+    transform: translateX(-375px);
+    opacity: 0;
+    backdrop-filter: blur(8px);
+    box-shadow: 1px 5px 5px rgba(0, 0, 0, .5);
+    outline: none;
+    color: white;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &.show {
+      animation: showToaster;
+      animation-duration: 0.25s;
+      animation-fill-mode: both;
+      animation-timing-function: ease-in-out;
+    }
+
+    &.hide {
+      animation: hideToaster;
+      animation-duration: 0.25s;
+      animation-fill-mode: both;
+      animation-timing-function: ease-in-out;
+    }
+
+    &.default {
+      border-left: 6px solid white;
+    }
+
+    &.success {
+      border-left: 6px solid lawngreen;
+    }
+
+    &.error {
+      border-left: 6px solid red;
+    }
+
+    &.warning {
+      border-left: 6px solid darkorange;
+    }
+
+    &.info {
+      border-left: 6px solid dodgerblue;
+    }
+
+    &__content {
+      font-family: sans-serif;
+
+      .title {
+        text-align: left;
+        font-family: 'konexy', sans-serif;
+        font-weight: bold;
+        margin: auto auto 10px;
+        font-size: 19px;
+        text-transform: capitalize;
+        position: relative;
+      }
+
+      p {
+        margin: auto;
+      }
+    }
+  }
+}
+
+
+@keyframes showToaster {
+  from {
+    opacity: 0;
+    transform: translateX(-375px);
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+
+@keyframes hideToaster {
+  from {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-375px);
+  }
+}

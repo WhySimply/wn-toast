@@ -1,0 +1,11 @@
+<div class="toaster-container">
+  <div *ngFor="let toast of currentToasts; index as i">
+    <div class="toaster {{toast.type}}" [ngClass]="{'show': toast.isActive, 'hide': !toast.isActive}"
+         (click)="removeToast(toast)">
+      <div class="toaster__content">
+        <p *ngIf="toast.title" class="title">{{toast.title}}</p>
+        <p class="message">{{toast.message}}</p>
+      </div>
+    </div>
+  </div>
+</div>
